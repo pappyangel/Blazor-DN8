@@ -1,5 +1,6 @@
 using KeyConcepts.Client.Pages;
 using KeyConcepts.Components;
+using DepenLib;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+builder.Services.AddSingleton<DemoDependency>();
 
 var app = builder.Build();
 

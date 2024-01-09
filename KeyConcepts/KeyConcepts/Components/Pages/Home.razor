@@ -1,7 +1,9 @@
 ﻿@page "/"
+@inject DemoDependency myDI
 
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, MY world!</h1>
+<h2>My DI says: @myDI.GiveRandomNumber()</h2>
 
 Welcome to your new app, Bobo.
