@@ -1,0 +1,16 @@
+@page "/bobo"
+@inject DemoDependency myDI
+
+
+<PageTitle>Bobo</PageTitle>
+
+<h3>Bobo Page</h3>
+
+<p> 
+    
+    @myDI.GiveRandomNumber()
+
+</p>
+@code {
+
+}
