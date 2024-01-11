@@ -1,11 +1,13 @@
 @page "/popup"
+@* @using Microsoft.AspNetCore.Components.RenderMode
+@rendermode Rendermode.InteractiveServer *@
 
 <h3>Popup</h3>
 
 <p>This is a blank Blazor page.</p>
 
 <!-- Button trigger modal -->
-<button class="btn btn-primary" onclick="ConfirmInternalNavigation()">Pop Up</button>
+<button @onclick="TestMethod2">Pop Up</button>
 
 @code {
     // Add your code here
@@ -13,7 +15,14 @@
     [Inject]
     protected IJSRuntime jsRuntime { get; set; } = null!;
 
-    protected async Task ConfirmInternalNavigation(LocationChangingContext context)
+    public void TestMethod2()
+    {
+        // do something
+        int dog=0;
+        dog++;
+        
+    }
+    protected async Task TestMethod()
     {
         var confirmed = await jsRuntime.InvokeAsync<bool>("confirm", "Discard your changes?");
 

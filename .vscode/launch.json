@@ -2,21 +2,22 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug RememberThis",
+            "name": "RT",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
+            "preLaunchTask": "buildRT",
             "program": "${workspaceFolder}/RememberThis/bin/Debug/net8.0/RememberThis.dll",
             "args": [],
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/RememberThis",
             "stopAtEntry": false,
-            "serverReadyAction": {
-                "action": "openExternally",
-                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
-            },
+            // "serverReadyAction": {
+            //     "action": "openExternally",
+            //     "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            // },
             "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
-            },
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "DOTNET_ENVIRONMENT" : "Development"
+            },            
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"
             }
