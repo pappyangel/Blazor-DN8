@@ -2,6 +2,19 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Random",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "buildRandom",
+            "program": "${workspaceFolder}/random8/bin/Debug/net8.0/random8.dll",            
+            "args": [],
+            "cwd":"${workspaceFolder}/random8",
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "DOTNET_ENVIRONMENT" : "Development"
+            }
+        },
+        {
             "name": "RT",
             "type": "coreclr",
             "request": "launch",
@@ -9,6 +22,27 @@
             "program": "${workspaceFolder}/RememberThis/bin/Debug/net8.0/RememberThis.dll",
             "args": [],
             "cwd": "${workspaceFolder}/RememberThis",
+            "stopAtEntry": false,
+            // "serverReadyAction": {
+            //     "action": "openExternally",
+            //     "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            // },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "DOTNET_ENVIRONMENT" : "Development"
+            },            
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },       
+        {
+            "name": "KCServer",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "buildKC",
+            "program": "${workspaceFolder}/KeyConcepts/KeyConcepts/bin/Debug/net8.0/KeyConcepts.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/KeyConcepts/KeyConcepts",
             "stopAtEntry": false,
             // "serverReadyAction": {
             //     "action": "openExternally",
