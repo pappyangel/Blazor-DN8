@@ -1,0 +1,31 @@
+@page "/multimodalparent"
+@rendermode InteractiveServer
+
+<h1>We are trying to open a child modal.</h1>
+
+
+<button class="btn btn-primary" @onclick="() => childmodal!.Open()">Click here to open a child modal.</button>
+
+<MultiModalChild EventCallbackToParentMethod="ParentLocalMethod" @ref="childmodal">
+    <Title>This is a <em>Title!</em></Title>
+
+    <Body>
+        <p class="bg-warning">Please confirm your action.</p>
+        <p>Are you sure you want to proceed? </p>
+    </Body>
+</MultiModalChild>
+
+<br>
+<br>
+<br>
+<label>@modalButtonClicked </label>
+
+@code {
+    private MultiModalChild? childmodal { get; set; }
+    private string modalButtonClicked = "InitVal";
+
+    private void ParentLocalMethod(string message)
+    {
+        this.modalButtonClicked = message;
+    }
+}
