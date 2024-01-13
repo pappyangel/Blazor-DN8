@@ -1,0 +1,13 @@
+@page "/rm4"
+@rendermode InteractiveAuto
+
+<button @onclick="UpdateMessage">Click me</button> @message
+
+@code {
+    private string message = "Not clicked yet.";
+
+    private void UpdateMessage()
+    {
+        message = "Somebody clicked me!";
+    }
+}

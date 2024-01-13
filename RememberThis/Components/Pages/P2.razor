@@ -1,0 +1,42 @@
+@page "/p2"
+@* @using Microsoft.AspNetCore.Components.RenderMode
+@rendermode Rendermode.InteractiveServer *@
+@* @rendermode InteractiveServer *@
+
+<h3>Popup</h3>
+
+<p>This is a blank Blazor page.</p>
+
+<!-- Button trigger modal -->
+<button @onclick="TestMethod2">Pop Up</button>
+
+<br />
+<h4> @textInfo </h4>
+<br />
+
+
+<!-- Button trigger modal -->
+<button @onclick="TestMethod">Pop Up</button>
+
+@code {
+    // Add your code here
+
+    private string textInfo = "Initial value";
+    
+    [Inject]
+    protected IJSRuntime jsRuntime { get; set; } = null!;
+
+    public void TestMethod2()
+    {
+        // do something
+        int dog=0;
+        dog++;
+        textInfo = "Updated by Test Method2";
+        
+    }
+    protected async Task TestMethod()
+    {
+        var confirmed = await jsRuntime.InvokeAsync<bool>("confirm", "Discard your changes?");
+
+    }
+}
