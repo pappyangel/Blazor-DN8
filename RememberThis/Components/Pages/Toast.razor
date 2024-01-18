@@ -1,0 +1,46 @@
+@page "/toast"
+@rendermode InteractiveServer
+@using System
+@using System.Threading
+
+
+<h1>We are trying to open toast.</h1>
+
+
+<button type="button" class="btn btn-primary" @onclick="ShowToast" id="liveToastBtn">Show live toast</button>
+
+@if (showMyToast)
+{
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="/favicon.png" class="rounded me-2" alt="...">
+      <strong class="me-auto">Warning</strong>
+      <small>4 secs ago</small>
+      <button type="button" class="btn-close" @onclick="CloseToast" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Websocket error.
+    </div>
+  </div>
+</div>
+}
+
+
+
+@code {
+      private bool showMyToast = false;      
+      private Timer? myTimer;           
+      private void ShowToast()
+      {
+        showMyToast = true;    
+        myTimer = new Timer(CloseToast, null, 3000, Timeout.Infinite);        
+      }
+      private void CloseToast(object? state)
+      {
+        showMyToast = false;
+        InvokeAsync(StateHasChanged);
+        myTimer?.Dispose();        
+      }      
+
+}
