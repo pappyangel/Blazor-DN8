@@ -1,0 +1,30 @@
+@page "/timer2"
+@using System.Threading
+@implements IDisposable
+@rendermode InteractiveServer
+
+<PageTitle>Timer</PageTitle>
+
+<h3>@message</h3>
+
+@code {
+    private Timer? _timer;
+    private string message = "Timer not started";
+
+    protected override void OnInitialized()
+    {
+        _timer = new Timer(TimerCallback, null, 0, 1000);
+    }
+
+    private void TimerCallback(object? state)
+    {
+        var count = DateTime.Now.Second;
+        message = $"Seconds: {count}";
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        _timer?.Dispose();
+    }
+}
