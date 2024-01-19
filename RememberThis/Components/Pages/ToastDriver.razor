@@ -1,0 +1,17 @@
+@page "/toastdriver"
+@rendermode InteractiveServer
+
+<h1>We are calling a toast component.</h1>
+
+<button class="btn btn-primary" @onclick="() => childtoast!.ShowToast()">Click here to call a toast component.</button>
+
+<ToastComp @ref="childtoast">
+    <Body>       
+        <p>Tim can't touch this!</p>
+    </Body>
+</ToastComp>
+
+@code {
+    private ToastComp? childtoast { get; set; }   
+
+}
