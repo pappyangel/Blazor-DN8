@@ -13,7 +13,7 @@
       <button type="button" class="btn-close" @onclick="CloseToast" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
     <div class="toast-body">
-      @Body
+     @Body
     </div>
   </div>
 </div>
@@ -22,12 +22,13 @@
 @code {
 
   [Parameter]
-  public RenderFragment? Body { get; set; }
+    public RenderFragment? Body { get; set; }
   private bool showMyToast = false;
   private Timer? myTimer;
   public void ShowToast()
   {
     showMyToast = true;
+    @* InvokeAsync(StateHasChanged); *@
     myTimer = new Timer(CloseToast, null, 3000, Timeout.Infinite);
   }
   private void CloseToast(object? state)

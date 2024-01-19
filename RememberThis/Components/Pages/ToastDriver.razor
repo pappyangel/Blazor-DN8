@@ -5,10 +5,10 @@
 
 <button class="btn btn-primary" @onclick="() => childtoast!.ShowToast()">Click here to call a toast component.</button>
 
-<ToastComp @ref="childtoast">
+<ToastComp @ref="childtoast" >
     <Body>       
         <p>Tim can't touch this!</p>
-    </Body>
+    </Body> 
 </ToastComp>
 
 @code {
