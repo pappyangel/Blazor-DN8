@@ -1,0 +1,41 @@
+@page "/menutoc"
+@rendermode InteractiveServer
+@inject NavigationManager navManager
+
+<PageTitle>Menu ToC</PageTitle>
+
+<h1>Menu Table of Contents</h1>
+
+
+@* <button class="btn btn-primary" @onclick="() => { navManager.NavigateTo("/menu"); }">Full Menu</button> *@
+<button class="btn btn-primary" @onclick="NavigateToMenu">Full Menu</button>
+<button class="btn btn-primary" @onclick="NavigateToApps">Apps</button>
+@* <button class="btn btn-primary" @onclick="() => { navManager.NavigateTo("/menu#salad"); }">Salad</button>
+<button class="btn btn-primary" @onclick="() => { navManager.NavigateTo("/menu#entree"); }">Entree</button> *@
+<button class="btn btn-primary" @onclick="NavigateToDessert">Dessert</button>
+
+<h3>Full Menu</h3>
+<h3>Apps</h3>
+<h3>Salad</h3>
+<h3>Entree</h3>
+<h3>Dessert</h3>
+
+@code {
+    
+    private void NavigateToMenu()
+    {
+        navManager.NavigateTo("/menu");
+    }
+
+       private void NavigateToApps()
+    {
+        navManager.NavigateTo("/menu#apps");
+    }
+       private void NavigateToDessert()
+    {
+        navManager.NavigateTo("/menu#dessert");
+    }
+
+
+}
+
