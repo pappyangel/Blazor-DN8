@@ -4,38 +4,39 @@
 
 <PageTitle>Menu ToC</PageTitle>
 
+
+
+
+
 <h1>Menu Table of Contents</h1>
+<hr>
+<br>
+<br>
+<h5>Check out today's specials or click one of the buttons below to see our full menu lineup!</h5>
+<br>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores eaque quis ipsa minima architecto animi</p>
+<p> hic neque a sed modi atque quo, optio provident omnis quia, perferendis inventore sint earum.</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem esse pariatur possimus quas iusto dolorem impedit natus ex mollitia similique molestias quidem repellendus soluta, laborum qui maiores iste corrupti delectus ullam! Dignissimos, autem eveniet nobis ad veniam repellat perspiciatis libero recusandae modi sint mollitia maiores non consequatur reprehenderit aliquid! Quos non harum ducimus minima incidunt, accusantium dolor earum exercitationem. Exercitationem, rerum architecto non itaque culpa facilis corrupti tempora nesciunt deleniti, error incidunt cumque in magnam.</p>
+<br>
+<br>
+<br>
+<hr>
+<hr>
+<button class="btn btn-primary" @onclick="() => { navManager.NavigateTo(pageMenu); }">Full Menu</button>
+<button class="btn btn-primary" @onclick="() => { navManager.NavigateTo(pageApps); }">Apps</button>
+<button class="btn btn-primary" @onclick="() => { navManager.NavigateTo(pageSalad); }">Salad</button>
+<button class="btn btn-primary" @onclick="() => { navManager.NavigateTo(pageEntree); }">Entree</button>
+<button class="btn btn-primary" @onclick="() => { navManager.NavigateTo(pageDessert); }">Dessert</button>
+<hr>
 
-
-@* <button class="btn btn-primary" @onclick="() => { navManager.NavigateTo("/menu"); }">Full Menu</button> *@
-<button class="btn btn-primary" @onclick="NavigateToMenu">Full Menu</button>
-<button class="btn btn-primary" @onclick="NavigateToApps">Apps</button>
-@* <button class="btn btn-primary" @onclick="() => { navManager.NavigateTo("/menu#salad"); }">Salad</button>
-<button class="btn btn-primary" @onclick="() => { navManager.NavigateTo("/menu#entree"); }">Entree</button> *@
-<button class="btn btn-primary" @onclick="NavigateToDessert">Dessert</button>
-
-<h3>Full Menu</h3>
-<h3>Apps</h3>
-<h3>Salad</h3>
-<h3>Entree</h3>
-<h3>Dessert</h3>
 
 @code {
     
-    private void NavigateToMenu()
-    {
-        navManager.NavigateTo("/menu");
-    }
-
-       private void NavigateToApps()
-    {
-        navManager.NavigateTo("/menu#apps");
-    }
-       private void NavigateToDessert()
-    {
-        navManager.NavigateTo("/menu#dessert");
-    }
-
-
+    public string pageMenu { get;  set; } = "/menu";
+    public string pageApps { get;  set; } = "/menu#apps";
+    public string pageSalad { get;  set; } = "/menu#salad";
+    public string pageEntree { get;  set; } = "/menu#entree";
+    public string pageDessert { get;  set; } = "/menu#dessert";
+    
 }
 

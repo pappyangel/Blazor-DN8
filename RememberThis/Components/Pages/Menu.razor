@@ -1,10 +1,14 @@
 @page "/menu"
 @rendermode InteractiveServer
+@inject NavigationManager navManager
 
 <PageTitle>Menu</PageTitle>
 
 <h1>Menu</h1>
-
+<button class="btn btn-primary" @onclick="GoBack" >Return to ToC</button>
+<br>
+<br>
+<br>
 <p id="apps"><b>APPETIZER</b></p>
 <p>App 1</p>
 <p>App 2</p>
@@ -40,3 +44,11 @@
 
 
 
+@code {
+
+    private void GoBack()
+    {
+        navManager.NavigateTo("/menutoc");
+    }
+
+}
