@@ -1,6 +1,18 @@
 {
     "version": "2.0.0",
-    "tasks": [
+    "tasks": [        
+        {
+            "label": "buildLambda",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Lambda/Lambda.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary;ForceNoAlign"
+            ],
+            "problemMatcher": "$msCompile"
+        },
         {
             "label": "buildRT",
             "command": "dotnet",

@@ -2,16 +2,27 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "lambda",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "buildLambda",
+            "program": "${workspaceFolder}/Lambda/bin/Debug/net8.0/Lambda.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Lambda",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },
+        {
             "name": "Random",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "buildRandom",
-            "program": "${workspaceFolder}/random8/bin/Debug/net8.0/random8.dll",            
+            "program": "${workspaceFolder}/random8/bin/Debug/net8.0/random8.dll",
             "args": [],
-            "cwd":"${workspaceFolder}/random8",
+            "cwd": "${workspaceFolder}/random8",
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development",
-                "DOTNET_ENVIRONMENT" : "Development"
+                "DOTNET_ENVIRONMENT": "Development"
             }
         },
         {
@@ -29,12 +40,12 @@
             // },
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development",
-                "DOTNET_ENVIRONMENT" : "Development"
-            },            
+                "DOTNET_ENVIRONMENT": "Development"
+            },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"
             }
-        },       
+        },
         {
             "name": "KCServer",
             "type": "coreclr",
@@ -50,12 +61,12 @@
             // },
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development",
-                "DOTNET_ENVIRONMENT" : "Development"
-            },            
+                "DOTNET_ENVIRONMENT": "Development"
+            },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"
             }
-        },       
+        },
         {
             "name": "Launch and Debug Standalone Blazor WebAssembly App",
             "type": "blazorwasm",
