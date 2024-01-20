@@ -1,5 +1,6 @@
 ﻿@page "/counter"
 @rendermode InteractiveAuto
+
 @inject ILogger<Counter> log
 
 <PageTitle>Counter</PageTitle>
@@ -16,6 +17,8 @@
     private void IncrementCount()
     {
         currentCount++;
+         @* InvokeAsync(StateHasChanged); *@
+               StateHasChanged(); 
     }
     protected override void OnParametersSet()   
     {
@@ -33,6 +36,8 @@
     {
         currentCount = 0;
         log.LogInformation($"OnAfterRender - FirstRender: {firstRender}");
+        @* InvokeAsync(StateHasChanged);  *@
+          @* StateHasChanged(); *@
     
     }
 }
