@@ -22,3 +22,5 @@ dotnet new classlib -o myClassLib
 dotnet new blazor -o myLearnCLApp 
 dotnet add reference ../myRazClassLib/myRazClassLib.csproj
 
+dotnet add package TheModal.1.0.5.nupkg -s Blazor-DN8/ClassLibs/myRazClassLib/bin/Release --version 1.0.5  --package-directory Blazor-DN8/ClassLibs/theModal/bin/Debug
+

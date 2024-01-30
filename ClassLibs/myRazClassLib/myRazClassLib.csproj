@@ -3,9 +3,13 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <ImplicitUsings>enable</ImplicitUsings>    
+    <PackageId>TheModal</PackageId>
+    <Description>Super Modal Dialog for Blazor.  Returns the button clicked.</Description>
+    <Version>1.0.5</Version>
+    <Authors>Jim Developer, Tim Programmer</Authors>
+    <Company>PluralPoint</Company>  
   </PropertyGroup>
-
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />
@@ -13,6 +17,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.0" />
-  </ItemGroup>
+  </ItemGroup>  
 
 </Project>
