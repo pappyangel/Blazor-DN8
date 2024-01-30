@@ -15,3 +15,7 @@ dotnet new blazor -au none -int Server -o RememberThis
 dotnet dev-certs https
 
 dotnet new console -o Lambda
+
+
+dotnet new razorclasslib -o myRazClassLib
+dotnet new classlib -o myClassLib
