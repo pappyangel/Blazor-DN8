@@ -19,3 +19,6 @@ dotnet new console -o Lambda
 
 dotnet new razorclasslib -o myRazClassLib
 dotnet new classlib -o myClassLib
+dotnet new blazor -o myLearnCLApp 
+dotnet add reference ../myRazClassLib/myRazClassLib.csproj
+
