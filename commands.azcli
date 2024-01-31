@@ -27,3 +27,5 @@ dotnet add package TheModal.1.0.5.nupkg -s Blazor-DN8/ClassLibs/myRazClassLib/bi
 dotnet add package TheModal.1.0.5.nupkg -s ../myRazClassLib/bin/Release --version 1.0.5 -n
 dotnet add package TheModal.1.0.4.nupkg -s ../myRazClassLib/bin/Release --version 1.0.4 -n
 dotnet add package TheModal.1.0.6.nupkg -s ../myRazClassLib/bin/Release --version 1.0.6 
+dotnet add package TheModal.1.0.7.nupkg -s ../myRazClassLib/bin/Release --version 1.0.7 -n
+dotnet add package SuperModal.1.0.8.nupkg -s ../myRazClassLib/bin/Release --version 1.0.8

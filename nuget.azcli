@@ -1,0 +1,25 @@
+# install mono for ubuntu 20.04
+sudo apt install ca-certificates gnupg
+
+sudo gpg --homedir /tmp --no-default-keyring --keyring /usr/share/keyrings/mono-official-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+
+echo "deb [signed-by=/usr/share/keyrings/mono-official-archive-keyring.gpg] https://download.mono-project.com/repo/ubuntu stable-focal main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+
+sudo apt update
+
+# install Mono
+sudo apt install mono-devel
+
+# Download the latest stable `nuget.exe` to `/usr/local/bin`
+sudo curl -o /usr/local/bin/nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+
+# Create as alias for nuget
+alias nuget="mono /usr/local/bin/nuget.exe"
+
+export PATH=$PATH:/usr/local/bin
+
+nuget spec -AssemblyPath ./bin/Debug/net8.0/myRazClassLib.dll
+
+nuget install ../myRazClassLib/bin/Release/TheModal.1.0.7.nupkg 
+
+
