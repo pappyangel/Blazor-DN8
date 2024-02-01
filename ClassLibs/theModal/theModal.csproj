@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="SuperModal" Version="1.0.8" />
+  </ItemGroup>
+
 </Project>

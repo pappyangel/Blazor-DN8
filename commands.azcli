@@ -22,10 +22,11 @@ dotnet new classlib -o myClassLib
 dotnet new blazor -o myLearnCLApp 
 dotnet add reference ../myRazClassLib/myRazClassLib.csproj
 
-dotnet add package TheModal.1.0.5.nupkg -s Blazor-DN8/ClassLibs/myRazClassLib/bin/Release --version 1.0.5  --package-directory Blazor-DN8/ClassLibs/theModal/bin/Debug
-
-dotnet add package TheModal.1.0.5.nupkg -s ../myRazClassLib/bin/Release --version 1.0.5 -n
-dotnet add package TheModal.1.0.4.nupkg -s ../myRazClassLib/bin/Release --version 1.0.4 -n
-dotnet add package TheModal.1.0.6.nupkg -s ../myRazClassLib/bin/Release --version 1.0.6 
-dotnet add package TheModal.1.0.7.nupkg -s ../myRazClassLib/bin/Release --version 1.0.7 -n
-dotnet add package SuperModal.1.0.8.nupkg -s ../myRazClassLib/bin/Release --version 1.0.8
+# Nuget steps
+dotnet pack 
+dotnet nuget list source
+dotnet nuget add source /workspaces/Blazor-DN8/ClassLibs/LocalNuget -n LocalNuget 
+#dotnet nuget remove source LocalNuget
+dotnet nuget push ./bin/Release/SuperModal.1.0.8.nupkg -s LocalNuget
+dotnet add package SuperModal
+# add using

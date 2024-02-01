@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>    
     <PackageId>SuperModal</PackageId>
     <Description>Super Modal Dialog for Blazor.  Returns the button clicked.</Description>
-    <Version>1.0.8</Version>
+    <Version>1.0.9</Version>
     <Authors>Jim Developer, Tim Programmer</Authors>
     <Company>PluralPoint</Company>  
   </PropertyGroup>
