@@ -1,0 +1,43 @@
+@page "/auth"
+@using Microsoft.AspNetCore.Components.Authorization
+@* @using Microsoft.AspNetCore.Authentication.OpenIdConnect; *@
+@using System.Security.Claims
+@rendermode InteractiveServer
+
+<PageTitle>Auth</PageTitle>
+
+<AuthorizeView>
+	<Authorized>
+		<p>User name: @user?.Identity?.Name</p>
+		<button @onclick="SignOut">Sign out</button>
+	</Authorized>
+	<NotAuthorized>
+		<button @onclick="SignIn">Sign in</button>
+	</NotAuthorized>
+</AuthorizeView>
+
+@code {
+    private ClaimsPrincipal? user;
+
+    [CascadingParameter]
+    public required Task<AuthenticationState> AuthenticationState { get; set; }
+
+    [Inject]
+    public required NavigationManager NavigationManager { get; set; }
+
+    private void SignOut()
+    {
+        NavigationManager.NavigateTo("MicrosoftIdentity/Account/SignOut", true);
+    }
+
+    private void SignIn()
+    {
+        NavigationManager.NavigateTo("MicrosoftIdentity/Account/SignIn", true);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authenticationState = await AuthenticationState;
+        user = authenticationState.User;
+    }
+}

@@ -31,3 +31,16 @@ dotnet nuget add source /workspaces/Blazor-DN8/ClassLibs/LocalNuget -n LocalNuge
 dotnet nuget push ./bin/Release/SuperModal.1.0.8.nupkg -s LocalNuget
 dotnet add package SuperModal  
 # add using
+
+#B2C
+dotnet new blazor -au none -int Server -o DN8AZANB2C
+dotnet new blazor -au Individual -int Server -o XDN8AZANB2C
+dotnet add package Microsoft.Identity.Web.UI --version 2.16.1
+<PackageReference Include="Microsoft.Identity.Web.UI" Version="2.15.1" />
+dotnet add package Microsoft.AspNetCore.Authentication.OpenIdConnect --version 8.0.1
+
+dotnet add package Microsoft.Identity.Web --version 2.16.1
+dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer --version 8.0.1
+dotnet remove package Microsoft.Identity.Web
+dotnet remove package Microsoft.AspNetCore.Authentication.JwtBearer 
+

@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>8ad19722-2c05-4555-b7a7-9dd24116b748</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>    
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="8.0.1" />    
+    <PackageReference Include="Microsoft.Identity.Web" Version="2.16.1" />    
+    <PackageReference Include="Microsoft.Identity.Web.UI" Version="2.16.1" />
+  </ItemGroup>
+
+</Project>
