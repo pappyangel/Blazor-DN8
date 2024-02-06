@@ -38,12 +38,17 @@ dotnet new blazor -au Individual -int Server -o XDN8AZANB2C
 dotnet add package Microsoft.Identity.Web.UI --version 2.16.1
 <PackageReference Include="Microsoft.Identity.Web.UI" Version="2.15.1" />
 dotnet add package Microsoft.AspNetCore.Authentication.OpenIdConnect --version 8.0.1
+dotnet remove package Microsoft.AspNetCore.Authentication.OpenIdConnect
 
 dotnet add package Microsoft.Identity.Web --version 2.16.1
 dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer --version 8.0.1
 dotnet remove package Microsoft.Identity.Web
 dotnet remove package Microsoft.AspNetCore.Authentication.JwtBearer 
 
+dotnet add package Microsoft.Identity.Web --version 2.15.5
+dotnet add package Microsoft.Identity.Web.UI --version 2.15.5
+dotnet remove package Microsoft.Identity.Web
+dotnet remove package Microsoft.Identity.Web.UI
 
 # Dev Cert Trust
 # https://learn.microsoft.com/en-us/aspnet/core/security/enforcing-ssl?view=aspnetcore-8.0&tabs=visual-studio%2Clinux-ubuntu 
