@@ -1,0 +1,63 @@
+@page "/auth"
+@rendermode InteractiveServer
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<PageTitle>Auth</PageTitle>
+
+<AuthorizeView>
+	<Authorized>
+		<p>User name: @user?.Identity?.Name</p>
+		<button @onclick="SignOut">Sign out</button>
+	</Authorized>
+	<NotAuthorized>
+		<button @onclick="SignIn">Sign in</button>
+	</NotAuthorized>
+</AuthorizeView>
+
+@code {
+    private ClaimsPrincipal? user;
+    private string? authMessage;
+    private string? lname;
+    private string? fname;
+    private IEnumerable<Claim> claims = Enumerable.Empty<Claim>();
+
+    [CascadingParameter]
+    public required Task<AuthenticationState> AuthenticationState { get; set; }
+
+    [Inject]
+    public required NavigationManager NavigationManager { get; set; }
+
+    private void SignOut()
+    {
+        NavigationManager.NavigateTo("MicrosoftIdentity/Account/SignOut", true);
+    }
+
+    private async Task SignIn()
+    {
+        NavigationManager.NavigateTo("MicrosoftIdentity/Account/SignIn", true);
+
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity is not null && user.Identity.IsAuthenticated)
+        {
+            authMessage = $"{user.Identity.Name} is authenticated.";
+            claims = user.Claims;
+            lname = user.FindFirst(c => c.Type == ClaimTypes.Surname)?.Value;
+            fname = user.FindFirst(c => c.Type == ClaimTypes.GivenName)?.Value;
+        }
+        else
+        {
+            authMessage = "The user is NOT authenticated.";
+        }
+
+
+
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authenticationState = await AuthenticationState;
+        user = authenticationState.User;
+    }
+}

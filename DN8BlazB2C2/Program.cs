@@ -19,12 +19,12 @@ builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
 builder.Services.AddControllers()
     .AddMicrosoftIdentityUI();
 
-builder.Services.AddAuthorization(options =>
-{
-    options.FallbackPolicy = new AuthorizationPolicyBuilder()
-        .RequireAuthenticatedUser()
-        .Build();
-});
+// builder.Services.AddAuthorization(options =>
+// {
+//     options.FallbackPolicy = new AuthorizationPolicyBuilder()
+//         .RequireAuthenticatedUser()
+//         .Build();
+// });
 
 var app = builder.Build();
 
