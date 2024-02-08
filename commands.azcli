@@ -9,9 +9,8 @@ dotnet new blazor
 
 
 dotnet new blazor -au none -int auto -o KeyConcepts
-
 dotnet new blazor -au none -int Server -o RememberThis
-
+dotnet new blazor -au none -int auto -o FormDemo
 dotnet dev-certs https
 
 dotnet new console -o Lambda
