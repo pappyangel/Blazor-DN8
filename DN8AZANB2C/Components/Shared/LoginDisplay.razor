@@ -1,0 +1,51 @@
+@using Microsoft.Identity.Web
+@using Microsoft.Extensions.Options
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+@inject IOptionsMonitor<MicrosoftIdentityOptions> microsoftIdentityOptions
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+@* <a href="MicrosoftIdentity/Account/SignOut">Log out</a>    
+<a href="MicrosoftIdentity/Account/SignIn">Log in</a> *@
+
+
+<AuthorizeView>
+    <Authorized>
+        @if (canEditProfile)
+        {            
+            <a href="MicrosoftIdentity/Account/EditProfile">Hello, @cpUser?.Identity?.Name</a>
+        }
+        else
+        {            
+            <text>Hello, @cpUser?.Identity?.Name</text>
+        }
+        <a href="MicrosoftIdentity/Account/SignOut">Log out</a>
+    </Authorized>
+    <NotAuthorized>
+        <a href="MicrosoftIdentity/Account/SignIn">Log in</a>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    private bool canEditProfile;
+    private string? userFname;
+    private ClaimsPrincipal? cpUser;
+    [CascadingParameter]
+    public required Task<AuthenticationState> AuthenticationState { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        @* var options = microsoftIdentityOptions.CurrentValue; *@
+        var options = microsoftIdentityOptions.Get(OpenIdConnectDefaults.AuthenticationScheme);
+        canEditProfile = !string.IsNullOrEmpty(options.EditProfilePolicyId);
+        @* canEditProfile = true; *@
+
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        userFname = user.FindFirst(c => c.Type == ClaimTypes.GivenName)?.Value;
+
+        var authenticationState = await AuthenticationState;
+        cpUser = authenticationState.User;
+    }
+}
