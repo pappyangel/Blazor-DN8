@@ -3,14 +3,18 @@
 
 ><h3>MyForm</h3>
 
-<EditForm  Enhance Model="@Person" method="post" FormName="myPersonForm" OnSubmit="SubmitForm">
+<EditForm  Enhance Model="@Person" method="post" FormName="myPersonForm" OnValidSubmit="SubmitForm">
+    <DataAnnotationsValidator />
+    
     <div >
         <label>First Name</label>
         <InputText @bind-Value="Person.FirstName" />
+        <ValidationMessage For="@(() => Person.FirstName)" />
     </div>
     <div >
         <label>Last Name</label>
         <InputText @bind-Value="Person.LastName" />
+        <ValidationMessage For="@(() => Person.LastName)" />
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
