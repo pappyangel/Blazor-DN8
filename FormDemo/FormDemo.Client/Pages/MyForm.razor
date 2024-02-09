@@ -4,7 +4,7 @@
 ><h3>MyForm</h3>
 
 
-<EditForm Model="@Person" method="post" FormName="myPersonForm" OnSubmit="SubmitForm">
+<EditForm  Enhance Model="@Person" method="post" FormName="myPersonForm" OnSubmit="SubmitForm">
     <div class="form-group">
         <label for="FirstName">First Name</label>
         <InputText id="FirstName" class="form-control" @bind-Value="Person.FirstName" />
