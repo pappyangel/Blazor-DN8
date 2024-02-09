@@ -18,9 +18,9 @@
     {
         currentCount++;
          @* InvokeAsync(StateHasChanged); *@
-               StateHasChanged(); 
+               @* StateHasChanged();  *@
     }
-    protected override void OnParametersSet()   
+    @* protected override void OnParametersSet()   
     {
         currentCount = 0;
         log.LogInformation("OnParametersSet");
@@ -36,8 +36,7 @@
     {
         currentCount = 0;
         log.LogInformation($"OnAfterRender - FirstRender: {firstRender}");
-        @* InvokeAsync(StateHasChanged);  *@
-          @* StateHasChanged(); *@
-    
-    }
+        InvokeAsync(StateHasChanged);  
+        StateHasChanged();    
+    } *@
 }
