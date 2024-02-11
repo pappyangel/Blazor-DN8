@@ -12,4 +12,8 @@ public class PersonModel
     [MinLength(8, ErrorMessage = "Last name must be at least 8 characters long")]
     public string? LastName { get; set; }
 
+    public string? LifeStory { get; set; }
+
+    public bool IsAlive { get; set; }
+
 }

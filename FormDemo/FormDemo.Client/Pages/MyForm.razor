@@ -15,11 +15,19 @@
                     <label>First Name</label>
                     <InputText @bind-Value="Person.FirstName" />
                     <ValidationMessage For="@(() => Person.FirstName)" />
-                </div> @*column left *@
-                <div class="col">
+                    <br />
+                    <br />
                     <label>Last Name</label>
                     <InputText @bind-Value="Person.LastName" />
                     <ValidationMessage For="@(() => Person.LastName)" />
+                </div> @*column left *@
+                <div class="col">
+                    <label>Life Story</label> <br />
+                    <InputTextArea @bind-Value="Person.LifeStory" rows=4 />
+                    <br /> 
+                    <label>IsAlive</label> <br />
+                    <InputCheckbox @bind-Value="Person.IsAlive"  />
+
                 </div> @*column right *@
             </div> @*row *@
             <br />
@@ -29,12 +37,10 @@
 
 </div>
 
-
-
 <ul>
     @foreach (var person in people)
     {
-        <li>@person.FirstName @person.LastName</li>
+        <li>@person.FirstName @person.LastName @person.LifeStory</li>
     }
 </ul>
 
@@ -47,7 +53,7 @@
 
     private void SubmitForm()
     {
-        logger.LogInformation($"{Person.FirstName} {Person.LastName}");
+        logger.LogInformation($"{Person.FirstName} {Person.LastName} {Person.LifeStory}");
         people.Add(Person);
         Person = new();
     }
