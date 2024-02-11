@@ -20,6 +20,35 @@
                     <label>Last Name</label>
                     <InputText @bind-Value="Person.LastName" />
                     <ValidationMessage For="@(() => Person.LastName)" />
+                    <br />
+                    <br />
+                    <label>Birthdate</label>
+                    <InputDate @bind-Value="Person.BirthDate" />
+                    <br />
+                    <br />
+                    <label>Birthdate Only</label>
+                    <InputDate @bind-Value="Person.BirthDateOnly" />     
+                    <ValidationMessage For="@(() => Person.BirthDateOnly)" />
+                    <br />
+                    <br />
+                    <label>Department</label>
+                    <br />
+                    <InputRadioGroup @bind-Value="Person.Departnment" >
+                        @foreach (var department in departments)
+                        {
+                            <InputRadio Value="department"/>@department <br />
+                        }
+                    </InputRadioGroup>
+                    <br />
+                    <br />
+                    <label>Employment Type</label>
+                    <br />
+                    <InputRadioGroup @bind-Value="Person.TypeofEmployment">
+                        @foreach (var toe in Enum.GetValues<EmploymentType>())
+                        {
+                            <InputRadio Value="toe" /> @toe.ToString() <br />
+                        }                        
+                    </InputRadioGroup>
                 </div> @*column left *@
                 <div class="col">
                     <label>Life Story</label> <br />
@@ -27,7 +56,27 @@
                     <br /> 
                     <label>IsAlive</label> <br />
                     <InputCheckbox @bind-Value="Person.IsAlive"  />
-
+                    <br />
+                    <br />
+                    <label>Age</label> <br />
+                    <InputNumber @bind-Value="Person.Age" />
+                    <ValidationMessage For="@(() => Person.Age)" />
+                    <br />
+                    <br />
+                    <label>Amount</label> <br />
+                    <InputNumber @bind-Value="Person.Amount" />
+                    <ValidationMessage For="@(() => Person.Amount)" />
+                    <br />
+                    <br />
+                    <label>Gender</label>
+                    <br />
+                    <InputSelect @bind-Value="Person.Gender">
+                        @foreach (var sex in GenderTypes)
+                        {
+                            <option value="@sex"> @sex</option> <br />
+                        }
+                    </InputSelect>
+                    <ValidationMessage For="@(() => Person.Gender)" />
                 </div> @*column right *@
             </div> @*row *@
             <br />
@@ -40,7 +89,7 @@
 <ul>
     @foreach (var person in people)
     {
-        <li>@person.FirstName @person.LastName @person.LifeStory</li>
+        <li>@person.FirstName @person.LastName @person.Gender @person.Departnment @person.TypeofEmployment</li>
     }
 </ul>
 
@@ -48,8 +97,9 @@
 
     [SupplyParameterFromForm]
     private PersonModel Person { get; set; } = new();
-
     private List<PersonModel> people = new();
+    private List<string> departments = new() { "One", "Two", "Three" };
+    private List<string> GenderTypes = new() { "Male", "Female", "Transgender", "Non-Binary", "Other" };
 
     private void SubmitForm()
     {

@@ -16,4 +16,29 @@ public class PersonModel
 
     public bool IsAlive { get; set; }
 
+    public DateTime? BirthDate { get; set; } = DateTime.Now;
+    
+    [Range(typeof(DateOnly), "1/1/1980", "12/31/2025", ErrorMessage = "Birth date only is out of range")]
+    public DateOnly? BirthDateOnly { get; set; } = DateOnly.FromDateTime(DateTime.Now);
+
+    [Range(1, 120, ErrorMessage = "Age must be between 1 and 120")]
+    public int Age { get; set; }
+
+    [Range(0, 100, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+    public double Amount { get; set; }
+
+    public string? Departnment { get; set; }
+
+    public string? Gender { get; set; }
+
+
+    public EmploymentType TypeofEmployment { get; set; }    
+
+}
+
+public enum EmploymentType
+{
+    FullTime,
+    PartTime,
+    Contractor
 }
