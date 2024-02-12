@@ -1,25 +1,33 @@
 ﻿@page "/B2"
-
-<h3>B2</h3>
 @rendermode InteractiveAuto
 @inject ILogger<B2> logger;
-    <PageTitle>B2</PageTitle>
+@inject IJSRuntime jsRuntime;
 
+<h3>B2</h3>
+<PageTitle>B2</PageTitle>
 
-       <EditForm Enhance Model="@myFile" method="post" FormName="myFileForm" OnSubmit="SubmitForm">
-            
+<div class="card">
+    <div class="card-header">
+        <h3 style="text-align:center">My Form</h3>
+    </div>
+    <div class="card-body">
+        <EditForm Enhance Model="@myFile" method="post" FormName="myFileForm" OnSubmit="SubmitForm">
             <div class="row">
                 <div class="col">
-                    <label>First Name</label>
-                    <InputFile @bind-Value="myFile.FileName" class="form-control" />
+                    <label>File to upload</label> <br /><br />
+                    <InputFile OnChange="@ShowPreview"/> <br />
                 </div> @*column left *@
                 <div class="col">
-                    <label>First Name</label>
+                    <label>This is your selected image</label> <br /><br />
+                    <img id="pageimage" height=auto width="175" src=@fileName alt="Select an image to share">
                 </div> @*column right *@
             </div> @*row *@
             <br />
             <button type="submit" class="btn btn-primary">Submit</button>
         </EditForm>
+    </div>
+
+</div>
 
 <h3> Filename: @myFile.FileName </h3>
 
@@ -27,14 +35,57 @@
 
 @code {
 
-  [SupplyParameterFromForm]
+    [SupplyParameterFromForm]
     private FileModel myFile { get; set; } = new();
-     private List<IBrowserFile> files = new();
+    private IBrowserFile ibFile = null!;
+    @* private int maxFiles = 5; *@
+    private string? fileName;
+
+
+
+    protected override void OnInitialized()
+    {
+
+        logger.LogInformation("OnInitialized");
+        fileName = "./Images/No Image Selected.png";
+
+    }
+
+    @* protected override void OnAfterRender(bool firstRender)
+    {
+
+        logger.LogInformation($"OnAfterRender - FirstRender: {firstRender}");
+        fileName = myFile.FileName;
+        //InvokeAsync(StateHasChanged);
+        //StateHasChanged();
+    } *@
+
+
 
     private void SubmitForm()
     {
         logger.LogInformation("Form submitted");
-       
-
     }
+
+    private async Task ShowPreview(InputFileChangeEventArgs e)
+    {
+        @* files.Clear();
+
+        foreach (var file in e.GetMultipleFiles(maxFiles))
+        {
+            files.Add(file);
+        } *@
+
+
+
+        ibFile = e.File;
+        myFile.FileName = ibFile.Name;
+        logger.LogInformation(myFile.FileName);
+        var jsFile = e.File;        
+        var bobo = await jsRuntime.InvokeAsync<string>("URL.createObjectURL", jsFile);
+       
+        
+        @* fileName = ibFile.Name; *@
+    }
+
 }
