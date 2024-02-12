@@ -1,0 +1,40 @@
+﻿@page "/B2"
+
+<h3>B2</h3>
+@rendermode InteractiveAuto
+@inject ILogger<B2> logger;
+    <PageTitle>B2</PageTitle>
+
+
+       <EditForm Enhance Model="@myFile" method="post" FormName="myFileForm" OnSubmit="SubmitForm">
+            
+            <div class="row">
+                <div class="col">
+                    <label>First Name</label>
+                    <InputFile @bind-Value="myFile.FileName" class="form-control" />
+                </div> @*column left *@
+                <div class="col">
+                    <label>First Name</label>
+                </div> @*column right *@
+            </div> @*row *@
+            <br />
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </EditForm>
+
+<h3> Filename: @myFile.FileName </h3>
+
+
+
+@code {
+
+  [SupplyParameterFromForm]
+    private FileModel myFile { get; set; } = new();
+     private List<IBrowserFile> files = new();
+
+    private void SubmitForm()
+    {
+        logger.LogInformation("Form submitted");
+       
+
+    }
+}

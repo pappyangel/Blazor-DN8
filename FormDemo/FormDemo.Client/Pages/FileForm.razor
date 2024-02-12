@@ -1,0 +1,50 @@
+﻿@page "/FileForm"
+@rendermode InteractiveAuto
+@inject ILogger<FileForm> logger;
+
+<div class="card">
+    <div class="card-header">
+        <h3 style="text-align:center">My Form</h3>
+    </div>
+    <div class="card-body">
+        <EditForm Enhance Model="@myFilen" method="post" FormName="myFileForm" OnValidSubmit="SubmitForm">
+            <DataAnnotationsValidator />
+            <div class="row">
+                <div class="col">
+                    
+                </div> @*column left *@
+                <div class="col">
+                    
+                </div> @*column right *@
+            </div> @*row *@
+            <br />
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </EditForm>
+    </div>
+
+</div>
+
+<ul>
+    @foreach (var person in people)
+    {
+        <li>@person.FirstName @person.LastName @person.Gender @person.Departnment @person.TypeofEmployment</li>
+    }
+</ul>
+
+
+<h3> Filename: @myFile.name</h3>
+
+
+
+@code {
+
+    [SupplyParameterFromForm]
+    private FileModel myFile { get; set; } = new();
+
+    private void SubmitForm()
+    {
+        logger.LogInformation("Form submitted");
+        logger.LogInformation($"Filename: {myFile.name}");
+
+    }
+}
