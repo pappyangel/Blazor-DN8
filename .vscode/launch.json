@@ -46,27 +46,27 @@
                 "/Views": "${workspaceFolder}/Views"
             }
         },
-            {
-                "name": "FormDemo",
-                "type": "coreclr",
-                "request": "launch",
-                "preLaunchTask": "buildForm",
-                "program": "${workspaceFolder}/FormDemo/FormDemo/bin/Debug/net8.0/FormDemo.dll",
-                "args": [],
-                "cwd": "${workspaceFolder}/FormDemo",
-                "stopAtEntry": false,
-                // "serverReadyAction": {
-                //     "action": "openExternally",
-                //     "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
-                // },
-                "env": {
-                    "ASPNETCORE_ENVIRONMENT": "Development",
-                    "DOTNET_ENVIRONMENT": "Development"
-                },
-                "sourceFileMap": {
-                    "/Views": "${workspaceFolder}/Views"
-                }
+        {
+            "name": "FormDemo",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "buildForm",
+            "program": "${workspaceFolder}/FormDemo/FormDemo/bin/Debug/net8.0/FormDemo.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/FormDemo",
+            "stopAtEntry": false,
+            // "serverReadyAction": {
+            //     "action": "openExternally",
+            //     "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            // },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "DOTNET_ENVIRONMENT": "Development"
             },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
         {
             "name": "KCServer",
             "type": "coreclr",

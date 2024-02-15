@@ -40,9 +40,6 @@
     private IBrowserFile ibFile = null!;
     @* private int maxFiles = 5; *@
     private string? fileName;
-
-
-
     protected override void OnInitialized()
     {
 
@@ -50,18 +47,6 @@
         fileName = "./Images/No Image Selected.png";
 
     }
-
-    @* protected override void OnAfterRender(bool firstRender)
-    {
-
-        logger.LogInformation($"OnAfterRender - FirstRender: {firstRender}");
-        fileName = myFile.FileName;
-        //InvokeAsync(StateHasChanged);
-        //StateHasChanged();
-    } *@
-
-
-
     private void SubmitForm()
     {
         logger.LogInformation("Form submitted");
