@@ -4,11 +4,12 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>    
-    <PackageId>SuperModal</PackageId>
+    <PackageId>BigModal</PackageId>
     <Description>Super Modal Dialog for Blazor.  Returns the button clicked.</Description>
-    <Version>1.0.9</Version>
+    <Version>1.0.0</Version>
     <Authors>Jim Developer, Tim Programmer</Authors>
     <Company>PluralPoint</Company>  
+    <RepositoryUrl>https://github.com/pappyangel/Blazor-DN8</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
