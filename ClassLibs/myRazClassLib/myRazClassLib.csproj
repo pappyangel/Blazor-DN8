@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>    
-    <PackageId>BigModal</PackageId>
+    <PackageId>Bobo</PackageId>
     <Description>Super Modal Dialog for Blazor.  Returns the button clicked.</Description>
     <Version>1.0.0</Version>
     <Authors>Jim Developer, Tim Programmer</Authors>

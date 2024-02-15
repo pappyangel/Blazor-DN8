@@ -25,10 +25,12 @@ dotnet add reference ../myRazClassLib/myRazClassLib.csproj
 dotnet pack 
 dotnet nuget list source
 dotnet nuget add source /workspaces/Blazor-DN8/ClassLibs/LocalNuget -n LocalNuget 
-dotnet nuget add source  https://nuget.pkg.github.com/pappyangel/index.json -n GHPappy 
+dotnet nuget add source  https://nuget.pkg.github.com/pappyangel/index.json -n GHPappy
 #dotnet nuget add source /workspaces/Blazor-DN8/MonoTest -n FireTruck
-#dotnet nuget remove source LocalNuget
-dotnet nuget push ./bin/Release/SuperModal.1.0.8.nupkg -s LocalNuget
+dotnet nuget remove source GHPappy
+dotnet new nugetconfig
+
+dotnet nuget push "./bin/Release/SBobo.1.0.0.nupkg" -s "github" 
 dotnet add package SuperModal  
 # add using
 
