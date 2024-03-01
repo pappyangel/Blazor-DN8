@@ -1,0 +1,17 @@
+@page "/SoundWave"
+
+<PageTitle>SoundWave</PageTitle>
+
+<h1>Hello, SoundWave</h1>
+
+Welcome to your SoundWave page.
+<br>
+<br>
+<br>
+<div class="sound-wave">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
