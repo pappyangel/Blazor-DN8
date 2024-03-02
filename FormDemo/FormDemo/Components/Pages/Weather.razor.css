@@ -1,10 +1,6 @@
-﻿wavebody {
-    background-color: #0e0e0e;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+﻿.wavebody {
+    margin-left: 80px;
+    /* border: 1px solid #af4c61;    */
 }
 
 @keyframes audio-wave {
